@@ -1,0 +1,53 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Rachels Schedule</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <link rel="stylesheet" href="./css/bootstrap.css" type="text/css" />
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link rel="stylesheet" href="./src/css/bootstrap.calendar.css" type="text/css" />
+
+
+    <!-- jQuery and the Calendar plugin files -->
+    <script type="text/javascript" src="./js/jquery.js" ></script>
+    <script type="text/javascript" src="./js/bootstrap.js" ></script>
+    <script type="text/javascript" src="./src/bootstrap.calendar.js" ></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+          var evnts = function(){
+              return {
+                      "event":
+                          [
+                               {"date":"07/12/2013","title":"1"}
+                          ]
+                      }
+          };
+
+         $('#calendar').Calendar({ 'events': evnts, 'weekStart': 1 })
+         .on('changeDay', function(event){ console.log(event.day.valueOf() +'-'+ event.month.valueOf() +'-'+ event.year.valueOf() ); })
+         .on('onEvent', function(event){ console.log(event.day.valueOf() +'-'+ event.month.valueOf() +'-'+ event.year.valueOf() ); })
+         .on('onNext', function(event){ console.log("Next"); })
+         .on('onPrev', function(event){ console.log("Prev"); })
+         .on('onCurrent', function(event){ console.log("Current"); });
+      });
+
+    </script>
+  </head>
+
+  <body data-offset="50" data-target=".subnav" data-spy="scroll" data-twttr-rendered="true">
+    <div class="container">
+      <div class="row">
+        <div class="span4" id="calendar"></div>
+      </div>
+    </div> <!-- /container -->
+
+</body>
+</html>
