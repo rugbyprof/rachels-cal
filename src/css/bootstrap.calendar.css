@@ -9,6 +9,7 @@
 .calendar body {
      background-color: #FFFFFF;
      position: relative;
+     padding-top:20px;
 }
 
 .year {
